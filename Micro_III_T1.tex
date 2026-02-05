@@ -1,0 +1,577 @@
+\documentclass[answers]{exam} %sacando [answers] se puede entregar a les alumnes
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[ansinew]{inputenc}	% Permite escribir en espanol
+\usepackage{enumerate}
+\usepackage{footnote}
+\usepackage{tabularx}
+\makesavenoteenv{solution}
+\usepackage{amsthm}	
+\usepackage{amsmath}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% Para ecuaciones y demases
+\usepackage{amssymb}						% Para ecuaciones y demases
+\usepackage{float}							% Para manejar la ubicacion de graficos
+\usepackage{verbatim}						% Para escribir codigos
+\usepackage{url}								% Para escribir direcciones web
+\usepackage{subfig}							% Para poner varias figuras en el mismo marco
+\usepackage{psfrag}							% Para hacer reemplazos en las figuras
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{bigstrut}
+\usepackage{color}
+	\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+	\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+	\definecolor{darkgreen}{rgb}{0.0, 0.2, 0.13}
+\usepackage{multirow,hhline}
+\usepackage[linkcolor=blue,colorlinks=true]{hyperref}
+\def\mathrlap{\mathpalette\mathrlapinternal} 
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{\llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{\rlap{$\mathsurround=0pt#1{#2}$}}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{lipsum}%al parecer es pa cosas como el lorem ipsum
+\usepackage{mdframed}     %asumo es pa los cuadritos owo
+
+
+%----------coso de los cuadritos
+\def\MakeFramed#1{\begin{mdframed}}
+\def\endMakeFramed{\end{mdframed}}
+\renewcommand{\solutiontitle}{\noindent\textsf{\textbf{Respuesta}}\par\noindent}
+
+
+%---------------------------diseñito
+\pagestyle{headandfoot}					% Opcion para tener headers y footers
+\headrule 											% Linea horizontal bajo el header
+
+\firstpageheader{\scriptsize{\includegraphics[scale=0.1]{uchile.jpeg}}}{} {\scriptsize{Universidad de Chile} \\ \scriptsize{Facultad de Economía y Negocios}}
+\runningheader{\scriptsize{\includegraphics[scale=0.1]{uchile.jpeg}}}{\scriptsize  Microeconomía IV \\ \scriptsize{Otoño 2023}} {\scriptsize{Universidad de Chile} \\ \scriptsize{Facultad de Economía y Negocios}}
+
+\footrule
+\footer{}{\scriptsize{P\'agina \thepage\ de \numpages}}{}
+\parindent = 0pt
+\renewcommand\partlabel{(\thepartno.)}
+\renewcommand\thesubpart{\roman{subpart}}
+%\renewcommand\thesubsubpart{\alpha{subsubpart}}
+%\renewcommand\subpartlabel{\thesubpart.)}
+%\pointpoints{pt.}{pts.}
+%\coverheadrule
+%\coverheader{\scriptsize{Universidad de Chile \\ Facultad de Economía y Negocios}}{
+%}{\scriptsize{Econom\'ia Pol\'itica  \\ Primavera 2016
+%\addpoints
+%\hqword{Pregunta}
+%\hpgword{P\'agina}
+%\hpword{Pts.}
+%\hsword{Pts. Obt.}
+
+
+\begin{document}
+
+\begin{center}
+
+\vspace*{50.0mm}
+
+
+\normalsize{Otoño 2023} \\
+
+\LARGE{\textbf{Tarea 1 - Microeconomía IV}}\\
+
+
+\normalsize{\textsc{\textit{}}}\\
+\large{\textbf{Profesor}: Francisco Pino E. } \\
+\vspace{0.8mm}
+\large{\textbf{Ayudantes}: Vicente Bavestrello S., Isaí Guzmán P.} \\
+\vspace{2.0mm}
+\large{\textbf{Integrantes}:} \\
+\vspace{0.5mm}
+\large{Christine Winter H.\footnote{cwinter@fen.uchile.cl}} \\
+\large{Diego Gherardelli B.\footnote{dgherardel@fen.uchile.cl}} \\
+\large{Martín Armas Ll.\footnote{marmas@fen.uchile.cl}} \\
+\end{center}
+
+\newpage
+
+
+\section{Marco Teórico}
+
+\subsection{Pregunta a}
+
+Existe una relación entre la desigualdad y la participación en la política. Las personas se pueden involucrar de distintas maneras, ya sea para para apoyar a alguna persona en específico, rechazar un plan de gobierno o manifestar el descontento que se tenga. En el último tiempo Chile se ha enfrentado a un periodo con una alta frecuencia de protestas y procesos electivos en los que la ciudadanía ha sido la protagonista. \\
+
+Corea del Sur sufrió de una crisis económica el año 1997 y desde ese momento el índice de Gini comenzó a subir aumentando la desigualdad. Jung In Jo en un análisis que realiza sobre Corea del Sur el año 2016 evaluó como afecto este hecho en las protestas políticas que desarrollaron en el país. El aumento es notorio y por medio de encuestas muestra que aquellas personas que perciben una mayor desigualdad, ya sea en materia económica o de oportunidades, tienden a participar con mayor frecuencia. Ahora bien, destaca que los principales agentes que realizan las movilizaciones no son los sectores marginales. Personas con estudios y personas dedicadas a los negocios serían el eje, ya que tienen una mejor posición para hablar. \\
+
+Mathew Wong y Stan Wong, el año 2022, publicaron un estudio realizado en Hong Kong, una de las economías más desiguales del mundo, donde relacionan la desigualdad con la participación de personas votantes en la política. Plantean que aquellos sectores en donde la desigualdad aumenta, la participación en las urnas se ve reducida, debido a que sienten que su voto no importa. A su vez plantean que en estos mismos sectores no le dan el apoyo al gobierno debido a desilusiones que pudieron sentir. \\
+
+Desde el año 2006 en Chile ha habido grandes manifestaciones gestionadas principalmente por estudiantes. Una de las razones por las que se han realizado las protestas es para cerrar la brecha que existe en la educación. Por el sistema educativo que existe en el país la diferencia entre poder optar por un colegio particular y no poder hacerlo es mucha. La calidad y condiciones de los estudios son muy distintas entre los establecimientos. Del mismo modo el año 2019, se generó lo que posteriormente se denominó, Estallido Social (ES), en donde las criticas iban hacia las desigualdades económicas y los beneficios que estas traían frente al resto de la población. Por consecuencia de la magnitud del ES se llegó a un acuerdo por modificar la constitución del país. Logrando una gran participación y cambio político. \\
+
+Por otra parte, en Chile se ha vivido un intenso ambiente político en donde la inestabilidad se ha hecho presente en todos los gobiernos. El año 2006 fue la última vez que hubo un cambio de gobierno entre dos presidentes de una misma coalición, de ahí en más siempre ha ido alternando entre los distintos bandos. Además, según datos del SERVEL, desde que existe el voto voluntario en el país (2012), se puede observar que en todas las elecciones de presidenciales la participación es menor al 50\% exceptuando la última el año 2021, donde una participación del 55,65\% y está ubicada en un ambiente de mayor conflicto. Pasando a un análisis más meticuloso si analizamos dos distritos de la Región Metropolitana que presenten realidades distintas, el porcentaje de participación es mucho menor en aquellos lugares en los que existe una mayor desigualdad. Estos datos evidencian que en el último periodo la ciudadanía no ha mostrado un interés en la política, siendo las comunes con menos recursos aquellas con un mayor desinterés. Esto cumple la relación entre desigualdad y participación planteado por M. Wong y S. Wong.
+
+
+\subsection{Pregunta b}
+
+Dentro del sistema educacional de Chile existen brechas entre los colegios. Las condiciones que pueden entregar los colegios particulares pagados, frente a los subvencionados y públicos, son mejores. Esto esta dado a los que los recursos permiten tener una mejor infraestructura y contratar a mejores profesionales, impactando directamente en la formación de los estudiantes. Por otro lado, colegios públicos poseen menos recursos, por lo que no pueden invertir tanto en infraestructura y en profesionales. Por lo que en cada sala una persona está a cargo de más alumnos. \\
+
+La situación socioeconómica es de vital importancia en la elección del colegio. Por lo general los colegios particulares pagados requieren de un alto gasto en matricula y mensualidades, que muchas familias no se lo pueden permitir. Esto conlleva a que los establecimientos puedan generar una discriminación por el nivel socioeconómico de cada familia. También hay una gran relevancia en el hogar en el que crecen. Si los padres tienen tiempo para ayudarlos, si tienen espacios para estudiar o realizar alguna actividad, son elementos que ayudan a la formación y que con un alto poder adquisitivo son accesibles. \\
+
+La importancia de la formación y de ser un buen ciudadano permite tener un mayor conocimiento y mayores capacidades de liderazgo para participar activamente de la política. Ya sea, votando en todas las elecciones y cumpliendo el deber cívico o participando de forma más activa en un partido político. Al evaluar la proveniencia de los ministros de los últimos gobiernos, uno puede observar que en su mayoría egresaron de colegios particulares privados. Por otra parte, al no poseer las condiciones adecuadas resulta mucho más complejo que se genere un interés por la política. \\
+
+Para reducir la brecha en la participación en la política, personas de sectores más vulnerables, deben observar un efecto positivo en el corto plazo, para que así sientan que su voto es importante. Actualmente son electos tanto los alcaldes como los concejales de cada comuna, que son renovados cada cuatro años, por lo que no se incentiva a una participación de la ciudadanía. Para lograr el objetivo se propone que los ciudadanos tomen decisiones sobre su territorio, ya sea comunal o regional, según la magnitud del proyecto, de forma constante. Al tratarse de proyectos más pequeños y sencillos, que una candidatura, se puede implementar un sistema de votación mediante la ClaveÚnica.  Permitiendo agilizar la votación y no obligue al traslado de personas. \\
+
+Los beneficios serán más visibles en aquellos sectores más vulnerables, pero igualmente se podrán observar en todas las comunas. Por ejemplo, en una comuna que tiene altos índices de violencia y criminalidad presenta una cantidad de proyectos a la ciudadanía. Se vota y aprueba, por un proyecto de luminarias en plazas y calles. La gente podría recuperar espacios públicos permitiéndoles tener una mejor calidad de vida. A su vez se genera un mayor sentido de pertenencia a la comuna, preocupándose cada vez más por las decisiones que se tomen dentro de ella. Bajo el mismo ejemplo los estudiantes de primaria y secundaria tendrán opciones recreativas que les permita alejarse de la delincuencia, generando un circulo virtuoso, en donde cada vez más personas se interesarían por votar, aumentando la aprobación de las comunas, generando importancia en elecciones más grandes. \\
+
+\section{Estadística Descriptiva}
+
+En esta sección analizamos la estadística descriptiva de la encuesta ELSOC 2016-2021. Cabe destacar que en los ítems (a), (d) y (e) fueron analizados solo los datos del año 2021 por temas de practicidad. De todas formas los cuadros y figuras del periodo comprendido entre 2016-2019 se encuentran disponibles en lo anexos de este informe. La encuesta en su versión 2020 no fue realizada por efectos de la pandemia del COVID-19, por lo que no se reportan resultados para ese año en específico.
+
+\subsection{Pregunta a}
+
+ El Cuadro Nº1 presenta la media, la desviación estándar, el valor mínimo y el valor máximo de las variables ingreso, edad, interés en política, percepción de desigualdad y percepción de movilidad intergeneracional por género. A partir de la información presentada es posible observar que los hombres tienen un salario promedio superior al de las mujeres, siendo esta diferencia superior a los 300.000 pesos. El ingreso promedio femenino se encuentra, además, por debajo del ingreso promedio total, y el ingreso máximo alcanzado por personas de sexo femenino es la mitad del monto máximo alcanzado por el sexo opuesto. Ambos grupos son bastante similares en cuanto a edad, el grado de interés que tienen en política y la percepción que tienen de la desigualdad y la movilidad intergeneracional. Mujeres y hombres tienen en promedio 47 años, poco interés por la política y están, en promedio, de acuerdo con la afirmación de que en Chile las diferencias de ingreso son demasiado grandes. En cuanto a la percepción de movilidad intergeneracional, es posible decir que hombres y mujeres perciben que sus hijos/as se ubican entre 1 a 2 deciles más arriba que ellos en la escala de estatus social subjetivo. 
+
+ 
+\begin{table}[H]
+      \centering
+      \caption{Estadística Descriptiva Año 2021}
+
+  
+\resizebox{14cm}{!}{
+    \input{tabla1_21}
+    }
+      \label{tab:my_label}
+  \end{table}
+   
+
+\subsection{Pregunta b}
+
+\begin{figure}[H]
+\centering
+\caption{Evolución de Interés en Política Años 2016-2021}
+    \includegraphics[width=0.8\textwidth]{grafico1.pdf}
+    \end{figure}
+
+La Figura Nº1 muestra la evolución del interés en política de los chilenos entre los años 2016 a 2021. La cantidad de personas fue expresada en \% de manera que los datos sean comparables entre años. Lo anterior debido a que en la encuesta existe un pequeño grado de deserción y en algunos años se han incluido nuevas personas dentro de la muestra. Como se puede observar en el gráfico, la gran mayoría de las personas se encuentra nada interesada en política, seguido por quienes se encuentran poco interesados y algo interesados. La minoría de las personas se encuentra bastante o muy interesada en política. Las personas nada interesadas han disminuido a través del tiempo y son por lo general absorbidas entre todos los intereses por igual. Para el año 2021 aumenta el interés general de las personas por la política, lo que se puede atribuir al contexto post estallido social de finales de 2019, como también al escenario pandémico en donde las personas requirieron de un gran apoyo estatal para sobrellevar el confinamiento producto del COVID-19.
+
+\subsection{Pregunta c}
+
+\begin{figure}[H]
+\centering
+\caption{Evolución de Percepción de Movilidad Intergeneracional Años 2016-2021}
+    \includegraphics[width=0.8\textwidth]{grafico2.pdf}
+    \end{figure}
+
+La figura Nº2 muestra la evolución de la percepción de movilidad intergeneracional por nivel socioeconómico entre los años 2016-2021, el valor de esta variable fue calculado en base al promedio de percepción de movilidad intergeneracional por nivel socioeconómico y año, además la variable de nivel socioeconómico fue construida a partir de los deciles de ingreso per cápita del hogar, en donde deciles 1-4 corresponden a clase baja, deciles 5-9 a clase media y decil 10 a clase alta. Para el año 2017 no se reportaron respuestas con respecto a la cantidad de personas del hogar, por lo que los ingresos promedio no pudieron ser calculados. Dado esto los datos del 2017 no se pueden observar en la figura. Se puede ver que entre le años 2016 y el año 2018 disminuyó la percepción de movilidad intergeneracional para todos los grupos independiente de su nivel socioeconómico. En el año 2019 esta percepción presenta un alza para los 3 grupos, siendo el nivel socioeconómico más bajo el que alcanza un mayor valor. Para ese año en particular, las personas de bajo nivel socioeconómico llegaron a percibir que sus hijos se ubicaban en promedio, casi 3 deciles más arriba que ellos en la escala de estatus social subjetivo. Posteriormente en el año 2021 la percepción de movilidad internacional tiene una leve baja para los 3 tipos de nivel socioeconómico, siendo el grupo de clase media el más afectado.
+Para todo el periodo, las personas de clase baja son las que mayor percepción de movilidad intergeneracional promedio perciben, seguidas de las personas de nive socioeconómico medio.  \\
+
+
+
+La personas que menor movilidad generacional perciben, son aquellas pertenecientes a la clase más alta de la sociedad. Es importante notar que si bien existe una percepción de movilidad promedio de signo positivo, el valor es pequeño, indicando que como máximo, y solo para las personas de clase baja, la siguiente generación se ubica en promedio entre 2 a 3 deciles más arriba en la escala de estatus social subjetivo. La clase alta en cambio, tiene una percepción de movilidad bastante baja, lo que indica que personas de altos recursos tienden a mantenerse en el decil más alto entre generaciones.
+
+
+\subsection{Pregunta d}
+
+\begin{figure}[H]
+\centering
+\caption{Caracterización de Personas que perciben un País muy Desigual Año 2021}
+    \includegraphics[width=1\textwidth]{grafico3_2021.pdf}
+    \end{figure}
+
+La Figura Nº3 presenta la caracterización de personas que perciben un país muy desigual en el año 2021, donde fueron consideradas las personas que se encontraban de acuerdo y  totalmente de acuerdo con la afirmación de que Chile es un país muy desigualdad. Para la realización del gráfico se necesito crear una variable de rango etario para la que se consideró a personas entre 18 y 29 años como adultos jóvenes, entre los 30 y 59 como adultos y a personas de 60 años o más como adultos mayores, de acuerdo a las características de la población establecidas por el INE. Además, las respuestas de autoubicación política en la escala de izquierda a derecha, fueron agrupadas de acuerdo al siguiente criterio: valores 0,1,2 y 3  fueron considerados de "izquierda", valores 4,5 y 6 como "centro" y los valores 7,8,9 y 10 como de "derecha". Otro ajuste fue realizado con la variable de nivel educacional. Para este caso, fueron consideradas como sin estudios las personas sin estudios y con educación básica incompleta, como personas con educación básica las personas con educación básica completa y educación media incompleta, con nivel de educación media las personas con educación media completa, técnica superior incompleta y universitaria incompleta, y como educación superior las personas con técnica superior completa, universitaria completa y estudios de posgrado.
+
+La primera parte del gráfico hace referencia a las personas que perciben un país muy desigual por rango etario y posición política. Se observa claramente que la gran mayoría de las personas que perciben un país muy desigual se encuentran en la categoría de adultos, mientras que la distribución del porcentaje de adultos jóvenes y adultos mayores que comparte esta afirmación es bastante similar. Los adultos que afirman que chile es un país de mucha desigualdad, son en su mayoría de centro (37,2 \%), un 17,7\% pertenecientes al sector de la izquierda y finalmente un 11,6\% afin al sector de la derecha. Llama la atención que en todas las categorías de edad, predomina el centro político por sobre los extremos, dando indicios de que la percepción de que nuestro país concentra mucha desigualdad es algo más transversal y va más allá de una discusión entre el sector de la izquierda y de la derecha política. \\
+
+La segunda parte del gráfico añade el desgloce por nivel educacional. Se puede agregar a lo anteriormente dicho, que las personas que alcanzaron el nivel educacional correspondiente a "media completa" son quienes lideran los grupos etarios y de sector político en compartir la afirmación de desigualdad en nuestro país. La derecha política es en todos los casos el grupo que menos cantidad de personas posee que esten de acuerdo con la existencia de altos niveles de desigualdad en nuestro país.
+
+
+
+
+
+\subsection{Pregunta e}
+En la Figura 4 se muestra la correlación entre el interés en la política y la percepción de desigualdad para el año 2021 a partir de la encuesta ELSOC. Si bien dado la naturaleza categórica de las variable, la representación mediante un gráfico del tipo \textit{scatter} no resulta muy informativa, al trazar una linea que representa el ajuste lineal de las correlaciones, podemos observar que existe claramente una relación positiva entre ambas variables. Es decir, una mayor percepción de desigualdad podría llevar a las personas a interesarse más en la política nacional o viceversa, sin embargo esto no debe ser tratado cómo un efecto causal, sino como una simple correlación.
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Interés en Política y Percepción de Desigualdad Año 2021}
+    \includegraphics[width=0.8\textwidth]{grafico4_2021.pdf}
+    \end{figure}
+Los resultados encontrados son interesantes, ya que es un indicio de que personas que ven el país como uno más desigual se interesan más en la política, una hipótesis que podría explicar esto, es que ven en la política una herramienta para mejorar el nivel de desigualdad nacional. Por otra parte, también podría deberse a que personas que están más interesados en la política, también estén más al tanto de los niveles de desigualdad, o la vean como una problemática mayor y por ende perciban una mayor desigualdad dentro del país.    
+
+Luego, en la Figura 5 se muestra la correlación entre la participación política y la percepción de movilidad intergeneracional. 
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Participación Política y Percepción de Movilidad Intergeneracional Año 2021}
+    \includegraphics[width=0.8\textwidth]{grafico5_2021.pdf}
+    \end{figure}
+    
+Si bien, nuevamente trabajamos con variables categóricas, por lo que no se visualiza muy bien la correlación de los datos a partir de los puntos del gráfico, cada uno de estos puntos presenta una distinta densidad debido al mayor o menor número de observaciones que representan. Para ver de manera más simple la correlación, al igual que par la figura anterior, se utiliza una recta que muestra el sigo de la correlación mediante su pendiente. De esta forma, podemos observar que existe una correlación positiva entre ambas variables.\\
+
+La correlación positiva entre la percepción de movilidad intergeneracional y la participación el la política, nos muestra que en promedio personas que perciben una mayor movilidad intergeneracional tienden a participar de forma más activa en la política. Si bien esto podría resultar de cierta forma contradictorio con los resultados de la Figura 4, es importante destacar que no necesariamente un país con mayor movilidad intergeneracional es un país menos desigual, además de que podría deberse a que personas que participan en la política activamente, sienten que se han logrado cambios en relaciona a la movilidad intergeneracional.
+
+\newpage 
+\section{Análisis Econométrico}
+
+\subsection{Pregunta a}
+
+Realizar una regresión a través de MCO no está bien en este caso porque ambas variables son discretas, y toman solamente los valores 1, 2, 3, 4 o 5. Para realizar la regresión tenemos dos soluciones posibles para cada variable: hacer la variable continua o crear una dummy con cada valor de la variable. Con la variable dependiente ($InteresPol_i$) lo que hicimos fue sumar el interés en la política de las personas (\texttt{c13}) con la frecuencia con la que la persona habla de política con familiares o amigos (\texttt{c14\_01}) y con la frecuencia con la que se informa sobre política en medios de comunicación (\texttt{c14\_02}). Sumamos las tres variables (que toman valores del 1 al 5) porque nos pareció que eran buenos indicadores de interés en la política de las personas, ya que, a pesar de que la persona diga que no le interesa la política (\texttt{c13}) pero de todas maneras habla frecuentemente de ella o se informa sobre lo que está ocurriendo muestra cierto grado de involucración o de interés. Posteriormente ponderamos la suma por 1,2 si la persona es miembro/a inactivo/a de un partido o movimiento político y por 1,4 si es miembro/a activo/a. Para la variable independiente ($Percepcion\_Desigualdad_i$) usamos la variable del enunciado (\texttt{c18\_11}) y otras dos variables: el salario percibido de gerente de una gran empresa (\texttt{d03\_01}) y el salario percibido de un obrero no calificado (\texttt{d03\_02}). Como el cociente de estas dos variables nos pareció que también era una buena medida de percepción de desigualdad, lo multiplicamos por la variable \texttt{c18\_11}. Así nos quedó una variable de percepción de desigualdad continua y más precisa. \\ 
+
+A las dos variables creadas les aplicamos logaritmo natural por dos principales razones. Primero, como creamos ambas variables, les aplicamos logaritmo natural para que tengan una distribución más parecida a la de una normal y no tengan una distribución tan asimétrica. Y segundo, para que nos quede un modelo log-log, y que la interpretación de las variables sea el cambio porcentual esperado de Y (Interés en la política) cuando X (Percepción de desigualdad) aumente en cierto porcentaje (Benoit, 2011). \\ 
+
+Hicimos que la variable independiente sea continua porque nos parecía que la combinación de las variables era más precisa para medir la percepción de desigualdad. La variable dependiente también la creamos de esta manera porque nos parecía mejor la estimación incluyendo todas estas variables y porque la estimación del modelo con una transformación de la variable dependiente en 5 variables dummy era más difícil. Es decir, si creábamos las variables dummy, habríamos tenido que estimar el modelo con probit o logit (modelos hechos específicamente para estimar regresiones que tienen de variable dependiente una dummy). El problema es que no se puede estimar probit con efectos fijos (da resultados sesgados) ni se puede usar el estimador logit con variables instrumentales, porque los estimadores de variables instrumentales asumen que los errores se distribuyen de manera normal, mientras que logit no. Como ninguno de los dos es compatible con algún ítem requerido en la tarea, si los usábamos deberíamos haber tenido que ir alternando entre modelos. Por lo que nos pareció mejor pasar ambas a continuas. 
+
+
+\subsection{Pregunta b}
+
+Realizamos la regresión solamente con la variable dependiente e independiente: \\ 
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Regresión}
+\begin{tabular}{l*{1}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}\\
+                    &\multicolumn{1}{c}{Interés en la política}\\
+\hline
+Percepción de desigualdad&      0.0512\sym{***}\\
+                    &      (9.57)         \\
+[1em]
+Constant            &       1.708\sym{***}\\
+                    &     (64.30)         \\
+\hline
+R-squared           &      0.0218         \\
+Observations        &       14291         \\
+\hline\hline
+\multicolumn{2}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}
+
+
+En el Cuadro 2 podemos ver que la percepción de desigualdad es positiva y significativa. Con el coeficiente de un 0,05, significa que cada vez que la percepción de desigualdad aumenta un 1, el interés en la política aumenta un 0,05 (hay que considerar que $InteresPol$ se mueve en el rango [1,1 , 3,04] y $Percepcion\_Desigualdad$ en el rango [0,18 , 14,98], mucho más amplio). A pesar de la relación entre las variables y la significancia del coeficiente, podemos notar que el R-cuadrado es bajo (0,0218), lo que significa que solamente un 2,18\% de la variación del interés en la política es explicada por la percepción de desigualdad, bastante bajo. \\
+
+Ahora, la regresión que presentamos acá presenta varios problemas. Primero, puede existir doble causalidad entre ambas variables: la gente que está más interesada en política puede que tenga una mayor percepción de desigualdad debido a que están más al tanto de las cifras de sueldos y desempleo (por ejemplo), teniendo una idea más clara de la desigualdad a nivel nacional. Otro problema que puede presentar esta regresión es que no se está teniendo en cuenta el tiempo ni la comuna donde vive la persona encuestada. El tiempo porque después del 2019 la gente puede que tenga una mayor percepción de desigualdad por el estallido social o por la pandemia, y la comuna en que vive la persona porque si la persona vive en una comuna con mayor ingreso y/o menor desigualdad, es muy probable que tenga otra idea de la desigualdad nacional en comparación con alguien de una comuna más vulnerable. También hay que tener en cuenta otras variables como la eduación de la persona encuestada, su ingreso, su profesión, entre otras variables.
+
+\subsection{Pregunta c}
+
+Realizamos la regresión y la comparamos con la regresión de la pregunta anterior:
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Regresión con Efectos Fijos}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Interés en la política}&\multicolumn{1}{c}{Interés en la política}&\multicolumn{1}{c}{Interés en la política}\\
+\hline
+Percepción de desigualdad&      0.0512\sym{***}&      0.0500\sym{***}&      0.0506\sym{***}\\
+                    &      (9.57)         &     (16.57)         &     (14.87)         \\
+[1em]
+Constant            &       1.708\sym{***}&       1.664\sym{***}&       1.661\sym{***}\\
+                    &     (64.30)         &    (109.14)         &     (98.73)         \\
+\hline
+\multicolumn{4}{l}{Efectos Fijos:} \\
+\multicolumn{3}{l}{Por año} & \checkmark \\
+\multicolumn{3}{l}{Por comuna} & \checkmark \\
+\hline
+R-squared           &      0.0218         &      0.0205         &      0.0206         \\
+Observations        &       14291         &       14291         &       14291         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}
+
+
+En la columna (1) del Cuadro 3 están los resultados del ejercicio anterior, el cual lo hicimos con factores de expansión. En la columna (2) está la misma regresión, pero sin factores de expansión. Por último, en la columna (3) están los resultados de la regresión con los efectos fijos requeridos. Agregamos la columna (2) porque nos pareció correcto comparar las dos regresiones sin factores de expansión. A la regresión con efectos fijos no le pudimos agregar los factores de expansión porque estos tienen que ser constantes en los efectos fijos, lo que no ocurría acá\footnote{Es decir, como los factores de expansión eran por comuna y los efectos fijos por comuna y año, no se puede usar los factores de expansión porque hay distintos tipos de efectos fijos para el mismo factor de expansión (es decir, hay observaciones de Iquique en dos años distintos que tienen el mismo factor de observación, y Stata no permite eso).}. \\
+
+Podemos notar (Cuadro 3) que los tres coeficientes son prácticamente iguales. Los tres coeficientes son significativos y la diferencia entre ellos es insignificativa. En ``igualdad de condiciones'', es decir, sin factores de expansión, la regresión con efectos fijos es un 0,0005 mayor y su R-cuadrado es un 0,0001 mayor (cambios insignificativos). Eso si, el test \textit{t} de la regresión con efectos fijos es de 14,78, y el de la regresión simple con factores de expansión es de 9,57, lo que quiere decir que, a pesar de que ambos coeficientes son significativos, el coeficiente de la columna (3) es un poco más ``confiable'' (de todas maneras ambos lo son).
+
+
+\subsection{Pregunta d}
+
+Para las cuatro variables de control usamos a nivel individual el ingreso y la educación, y a nivel comunal el porcentaje de población inmigrante y el porcentaje de gente de pueblos originarios. Usamos estos controles porque:
+
+\begin{itemize}
+    \item \textbf{Ingreso}: la relación entre los ingresos (y el nivel socioeconómico) de las personas con su participación e interés en la política siempre se ha estudiado y se han relaciones causales entre el nivel socioeconómico y la participación política (Quintelier \& Hooghe, 2012), entre la participación baja en elecciones con resultados sesgados en contra de gente con niveles socioeconómicos más bajos (Lijphart, 1997), y más. 
+    \item \textbf{Educación}: este control es a nivel individual. Hay evidencia que muestra que la gente con mayor educación participa más en política (Jorge et al., 2013), Y también, como lo vimos en el control anterior, que cuando las elecciones tienen baja participación hay un sesgo en contra de la gente con niveles socioeconómicos más bajos (con menos educación) (Lijphart, 1997). Esto nos dice que la gente con mayor educación tiene más incentivos a participar en la política y lo hacen más regularmente.
+    \item \textbf{Inmigrantes}: elegimos la variable de inmigrantes de la CASEN (dummy: 1 si es inmigrante, 0 si no lo es). Elegimos esta variable porque nos pareció que debe haber una relación entre si la persona es inmigrante y su interés en la política. Esto porque, al venirse a vivir a Chile, debieron haberse averiguado sobre el país, sus políticas, leyes, etc. De manera que están más al tanto y muestran más interés en la política nacional. Como la variable es a nivel comunal, cada observación nos muestra el porcentaje de inmigrantes que vive en cada comuna.
+    \item \textbf{Pueblos originarios}: este control de pueblos originarios es igual que el de inmigrantes (dummy y está a nivel comunal). Lo elegimos porque como minorías, los pueblos originarios han sido discriminados o no han sido tomados en cuenta durante los últimos años (hasta el proceso constituyente), por lo que puede que siendo de pueblos originarios tengan más interés en la política para participar y tener la representación que deberían, o puede que como no han sido representados a lo largo de la historia, simplemente no les interese.
+\end{itemize}
+
+Realizamos la regresión con controles y la comparamos con las regresiones anteriores:
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Regresión con Controles y Efectos Fijos}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Interés en la política}&\multicolumn{1}{c}{Interés en la política}&\multicolumn{1}{c}{Interés en la política}\\
+\hline
+Percepción de desigualdad &      0.0512\sym{***}&      0.0506\sym{***}&      0.0525\sym{***}\\
+                    &      (9.57)         &     (14.87)         &      (8.15)         \\
+[1em]
+Ingresos            &                     &                     &    9.81e-09         \\
+                    &                     &                     &      (1.34)         \\
+[1em]
+Educación          &                     &                     &      0.0142         \\
+                    &                     &                     &      (2.16)         \\
+[1em]
+Pueblos originarios &                     &                     &      -0.302\sym{*}  \\
+                    &                     &                     &     (-2.46)         \\
+[1em]
+Inmigrantes         &                     &                     &       0.197\sym{*}  \\
+                    &                     &                     &      (2.81)         \\
+[1em]
+Constant            &       1.708\sym{***}&       1.661\sym{***}&       1.523\sym{***}\\
+                    &     (64.30)         &     (98.73)         &     (26.57)         \\
+\hline
+\multicolumn{4}{l}{Efectos Fijos:} \\
+\multicolumn{2}{l}{Por año} & \checkmark & \checkmark \\
+\multicolumn{2}{l}{Por comuna} & \checkmark & \\
+\hline 
+R-squared           &      0.0218         &      0.0206         &      0.0369         \\
+Observations        &       14291         &       14291         &       11015         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table} 
+
+En el Cuadro 4 podemos ver: en la columna (1) la regresión del ejercicio b, en la columna (2) la regresión del ejercicio c (con efectos fijos), y en la columna (3) la regresión con efectos fijos y los controles. Notar que el coeficiente de la percepción de desigualdad es levemente mayor cuando se agregan los controles, pero, a pesar de esto, el test t es un poco menor (de todas maneras sigue siendo significativo), por lo que con lo que respecta al coeficiente y al test t de la regresión con controles, cambia un poco pero se mantiene prácticamente igual. Eso si, el R-cuadrado sube en más de un 1\%, lo que quiere decir que ahora la percepción de desigualdad explica un 3\% de la variación del interés de la política (sigue siendo bastante bajo). \\ 
+
+Con respecto a los coeficientes de los controles: podemos notar que los coeficientes comunales (pueblos originarios e inmigración) son levemente significativos: el ser de un pueblo originario disminuye la probabilidad que le interese la política a la persona (una de las teorías que planteamos) y el ser inmigrante aumenta la probabilidad de que haya interés en política, como lo dijimos. Sabemos que estos dos controles son a nivel comunal, así que sería: las comunas que tienen más inmigrantes es más probable que estén más interesadas en política. Ahora, nos pareció sorpresivo que ni los ingresos ni la educación sean significativos, ya que, eran los dos controles que tenían más evidencia de estar correlacionados con el interés en la política. 
+
+
+\subsection{Pregunta e}
+
+El instrumento que se propone utilizar es el Coeficiente de Gini de cada comuna. Este instrumento puede ser de gran utilidad porque (i) debe estar directamente correlacionado con la percepción de desigualdad de la gente y la relación debería ser causal\footnote{Esto porque la gente al vivir en una comuna más desigual debe tener una percepción de desigualdad más grande por su entorno.} y (ii) no debería tener una relación directa y causal con el interés en la política de las personas (la relación debería ser a través de la percepción). Con (i) el instrumento cumple con la relevancia y con el (ii) con la exclusividad, es decir, debería ser un buen instrumento. Sus etapas serían: \\
+
+Primera etapa:
+$$ {Percepcion\_Desigualdad}_{ict} = \gamma \times {Gini}_c + u_{ict} $$
+Segunda etapa:
+$$ Interes\_Pol_{ict} = \beta_0 + \beta_1 \times \widehat{Percepcion\_Desigualdad}_{ict} + \alpha_c + \delta_t + \varphi X_{ict} + \varepsilon_{ict} $$
+
+Los resultados de las regresiones los presentamos a continuación en los Cuadros 5 y 6. En el Cuadro 5 podemos ver los resultados de la primera etapa de la regresión con variables instrumentales que hicimos manualmente, y en el Cuadro 6 tenemos varias columnas: en la columna (1) la regresión del ejercicio b, en la columna (2) la regresión del ejercicio c (con efectos fijos), en la columna (3) la regresión del ejercicio d (con efectos fijos y controles), en la columna (4) tenemos una regresión de MC2E con variables instrumentales sin controles ni efectos fijos (la hicimos con un código de Stata automáticamente) y en la columna (5) la segunda parte de la regresión con variables instrumentales de manera manual. \\ 
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Primera Etapa}
+\begin{tabular}{l*{1}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}\\
+                    &\multicolumn{1}{c}{Percepción de desigualdad}\\
+\hline
+Gini comunal        &       0.846\sym{***}\\
+                    &      (3.36)         \\
+[1em]
+Constant            &       4.582\sym{***}\\
+                    &     (42.11)         \\
+\hline
+R-squared           &    0.000817         \\
+Observations        &       14317         \\
+\hline\hline
+\multicolumn{2}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}
+
+En el Cuadro 5 podemos observar que en la primera etapa de la regresión con variables instrumentales el coeficiente es significativo. Esto desde un principio es buen indicador y nos ayuda a pensar de que el instrumento es fuerte y no débil. Sin embargo, hay que analizar bien la situación cuando ya tengamos las dos etapas desarrolladas. \\ 
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Regresión con VI}
+\begin{tabular}{l*{5}{c}}
+\hline\hline
+                    &\multicolumn{5}{c}{Interés en la política} \\
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+\hline
+Percepción de desigualdad &      0.0512\sym{***}&      0.0506\sym{***}&      0.0525\sym{***}&       0.360\sym{**} &                     \\
+                    &      (9.57)         &     (14.87)         &      (8.15)         &      (2.55)         &                     \\
+[1em]
+Ingresos            &                     &                     &    9.81e-09         &                     &    2.08e-10\sym{**} \\
+                    &                     &                     &      (1.34)         &                     &      (4.42)         \\
+[1em]
+Educación          &                     &                     &      0.0142         &                     &      0.0126         \\
+                    &                     &                     &      (2.16)         &                     &      (2.02)         \\
+[1em]
+Pueblos originarios &                     &                     &      -0.302\sym{*}  &                     &      -0.342\sym{*}  \\
+                    &                     &                     &     (-2.46)         &                     &     (-3.00)         \\
+[1em]
+Inmigrantes         &                     &                     &       0.197\sym{*}  &                     &       0.292\sym{***}\\
+                    &                     &                     &      (2.81)         &                     &      (8.33)         \\
+[1em]
+Percepción instrumentalizada&                     &                     &                     &                     &    -0.00566         \\
+                    &                     &                     &                     &                     &     (-0.02)         \\
+[1em]
+Constant            &       1.708\sym{***}&       1.661\sym{***}&       1.523\sym{***}&       0.129         &       1.791         \\
+                    &     (64.30)         &     (98.73)         &     (26.57)         &      (0.18)         &      (1.09)         \\
+\hline
+\multicolumn{4}{l}{Efectos Fijos:} \\
+\multicolumn{2}{l}{Por año} & \checkmark & \checkmark & & \checkmark \\
+\multicolumn{2}{l}{Por comuna} & \checkmark & & \\
+\hline 
+R-squared           &      0.0218         &      0.0206         &      0.0369         &           .         &      0.0125         \\
+Observations        &       14291         &       14291         &       11015         &       14287         &       11827         \\
+\hline\hline
+\multicolumn{6}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}
+
+Para el Cuadro 6, primero empezaremos analizando la columna (4). Esta columna la hicimos con el propósito de analizar si el instrumento es débil o no. Realizamos una regresión de Mínimos Cuadrados en 2 Etapas con el coeficiente de Gini como instrumento, y sin controles ni efectos fijos. Al realizar la regresión, nos sigue diciendo que la percepción de desigualdad es significativa, que es buena señal. Posteriormente realizamos una prueba para ver si el instrumento es débil. La prueba nos arrojó que el instrumento no era débil: el estadístico F fue 10,826. Literatura afirma que un instrumento que tiene un estadístico F menor a 10 es débil y no es buen instrumento, pero si es mayor a 10 es fuerte o está bien (Staiger \& Stock, 1997). \\
+
+Ahora con respecto a la columna (5), la regresión con variables instrumentales manual. Podemos notar que los controles variaron un poco: ahora el ingreso tiene un efecto positivo y significativo, lo cuál era lo que esperábamos. La educación y los Pueblos Originarios prácticamente no cambiaron, ya que, se mantuvieron con su signo y su nivel de significancia. El control de inmigración pasó a ser más significativo, lo cuál también apoya nuestra teoría que presentamos al principio. El coeficiente de la Percepción de desigualdad nos sorprendió: ha sido el único que no nos ha dado significativo, y es levemente negativo. Creemos que esto se debe a que hicimos el modelo manualmente y no con un código automático con variables instrumentales, controles y efectos fijos\footnote{Cuando intentamos hacerlo con controles, el código tomaba a los controles como más instrumentos.}. Este coeficiente sorpresivo también se debe a que al estimar el modelo con variables instrumentales, en la segunda etapa estamos estimando la variable dependiente con una estimación de la variable independiente. Con esto nos referimos a que al usar variables instrumentales, la segunda etapa es: $y_i = \hat x_i + u_i$, siendo $\hat x_i = x_i + \hat \epsilon_i$, por lo que la percepción de desigualdad con VI ya tiene un error dentro.  \\
+
+
+\newpage
+\section{Bibliografía}
+
+Benoit, K. (2011). Linear regression models with logarithmic transformations. London School of Economics, London, 22(1), 23-36. \\
+
+Castillo, J. C., Miranda, D., Bonhomme, M., Cox, C., \& Bascopé, M. (2014). Social inequality and changes in students’ expected political participation in Chile. Education, Citizenship and Social Justice, 9(2), 140-156. \\
+
+Jo, J. I. (2016). Weapons of the dissatisfied? Perceptions of socioeconomic inequality, redistributive preference, and political protest: Evidence from South Korea. International Area Studies Review, 19(4), 285-300. \\
+
+Jorge, J.E., Leguizamón, M. \& Steciow, U. (2013). La Influencia de la Educación sobre la Participación Política. Universidad Nacional de La Plata, Argentina. Question - Vol. 1, N.°39. \\
+
+Lijphart, A. (1997). Unequal participation: Democracy's unresolved dilemma presidential address, American Political Science Association, 1996. American political science review, 91(1), 1-14. \\
+
+Quintelier, E., \& Hooghe, M. (2012). The impact of socio-economic status on political participation. In Democracy in transition: Political participation in the European Union (pp. 273-289). Berlin, Heidelberg: Springer Berlin Heidelberg. \\
+
+Staiger, D. \& Stock, J. (1997). Instrumental Variables Regression with Weak Instruments. Harvard University. Econometrica, Vol. 65, No. 3 (May, 1997), 557-586. \\ 
+
+Wong, M. Y. H., \& Wong, S. H. W. (2022). Income Inequality and Political Participation: A District-Level Analysis of Hong Kong Elections. Social Indicators Research, 162(3), 959-977. \\
+
+\newpage 
+\section{Anexos}
+
+
+\begin{table}[H]
+      \centering
+      \caption{Estadística Descriptiva Año 2016}
+  
+\resizebox{14cm}{!}{
+    \input{tabla1_16}
+    }
+      \label{tab:my_label}
+  \end{table}
+
+
+\begin{table}[H]
+      \centering
+      \caption{Estadística Descriptiva Año 2017}
+  
+\resizebox{14cm}{!}{
+    \input{tabla1_17}
+    }
+      \label{tab:my_label}
+  \end{table}
+
+\begin{table}[H]
+      \centering
+      \caption{Estadística Descriptiva Año 2018}
+  
+\resizebox{14cm}{!}{
+    \input{tabla1_18}
+    }
+      \label{tab:my_label}
+  \end{table}
+
+\begin{table}[H]
+      \centering
+      \caption{Estadística Descriptiva Año 2019}
+  
+\resizebox{14cm}{!}{
+    \input{tabla1_19}
+    }
+      \label{tab:my_label}
+  \end{table}
+
+\begin{figure}[H]
+\centering
+\caption{Caracterización de Personas que perciben un País muy Desigual Año 2016}
+    \includegraphics[width=0.8\textwidth]{grafico3_2021.pdf}
+    \end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Caracterización de Personas que perciben un País muy Desigual Año 2017}
+    \includegraphics[width=0.8\textwidth]{grafico3_2017.pdf}
+    \end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Caracterización de Personas que perciben un País muy Desigual Año 2018}
+    \includegraphics[width=0.8\textwidth]{grafico3_2018.pdf}
+    \end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Caracterización de Personas que perciben un País muy Desigual Año 2019}
+    \includegraphics[width=0.8\textwidth]{grafico3_2019.pdf}
+    \end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Interés en Política y Percepción de Desigualdad Año 2016}
+    \includegraphics[width=0.8\textwidth]{grafico4_2016.pdf}
+    \end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Interés en Política y Percepción de Desigualdad Año 2017}
+    \includegraphics[width=0.8\textwidth]{grafico4_2017.pdf}
+    \end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Interés en Política y Percepción de Desigualdad Año 2018}
+    \includegraphics[width=0.8\textwidth]{grafico4_2018.pdf}
+    \end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Interés en Política y Percepción de Dessigualdad Año 2019}
+    \includegraphics[width=0.8\textwidth]{grafico4_2019.pdf}
+    \end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Participación Política y Percepción de Movilidad Intergeneracional Año 2016}
+    \includegraphics[width=0.8\textwidth]{grafico5_2016.pdf}
+    \end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Participación Política y Percepción de Movilidad Intergeneracional Año 2017}
+    \includegraphics[width=0.8\textwidth]{grafico5_2017.pdf}
+    \end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Participación Política y Percepción de Movilidad Intergeneracional Año 2018}
+    \includegraphics[width=0.8\textwidth]{grafico5_2018.pdf}
+    \end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{Relación entre Participación Política y Percepción de Movilidad Intergeneracional Año 2019}
+    \includegraphics[width=0.8\textwidth]{grafico5_2019.pdf}
+    \end{figure}
+
+
+
+
+\end{document}

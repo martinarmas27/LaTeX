@@ -1,0 +1,525 @@
+
+\documentclass[answers]{exam} %sacando [answers] se puede entregar a les alumnes
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[ansinew]{inputenc}	% Permite escribir en espanol
+\usepackage{enumerate}
+\usepackage{footnote}
+\makesavenoteenv{solution}
+\usepackage{amsthm}	
+\usepackage{amsmath}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% Para ecuaciones y demases
+\usepackage{amssymb}						% Para ecuaciones y demases
+\usepackage{float}							% Para manejar la ubicacion de graficos
+\usepackage{verbatim}						% Para escribir codigos
+\usepackage{url}								% Para escribir direcciones web
+\usepackage{subfig}							% Para poner varias figuras en el mismo marco
+\usepackage{psfrag}							% Para hacer reemplazos en las figuras
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{bigstrut}
+\usepackage{color}
+	\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+	\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+	\definecolor{darkgreen}{rgb}{0.0, 0.2, 0.13}
+\usepackage{multirow,hhline}
+\usepackage[linkcolor=blue,colorlinks=true]{hyperref}
+\def\mathrlap{\mathpalette\mathrlapinternal} 
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{\llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{\rlap{$\mathsurround=0pt#1{#2}$}}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{lipsum}%al parecer es pa cosas como el lorem ipsum
+\usepackage{mdframed}     %asumo es pa los cuadritos owo
+
+
+%----------coso de los cuadritos
+\def\MakeFramed#1{\begin{mdframed}}
+\def\endMakeFramed{\end{mdframed}}
+\renewcommand{\solutiontitle}{\noindent\textsf{\textbf{Respuesta}}\par\noindent}
+
+
+%---------------------------diseñito
+\pagestyle{headandfoot}					% Opcion para tener headers y footers
+\headrule 											% Linea horizontal bajo el header
+
+\firstpageheader{\scriptsize{\includegraphics[scale=0.1]{uchile.jpeg}}}{} {\scriptsize{Universidad de Chile} \\ \scriptsize{Facultad de Economía y Negocios}}
+\runningheader{\scriptsize{\includegraphics[scale=0.1]{uchile.jpeg}}}{\scriptsize  Métodos Cuantitativos II-III \\ \scriptsize{Otoño 2022}} {\scriptsize{Universidad de Chile} \\ \scriptsize{Facultad de Economía y Negocios}}
+
+\footrule
+\footer{}{\scriptsize{P\'agina \thepage\ de \numpages}}{}
+\parindent = 0pt
+\renewcommand\partlabel{(\thepartno.)}
+\renewcommand\thesubpart{\roman{subpart}}
+%\renewcommand\thesubsubpart{\alpha{subsubpart}}
+%\renewcommand\subpartlabel{\thesubpart.)}
+%\pointpoints{pt.}{pts.}
+%\coverheadrule
+%\coverheader{\scriptsize{Universidad de Chile \\ Facultad de Economía y Negocios}}{
+%}{\scriptsize{Econom\'ia Pol\'itica  \\ Primavera 2016
+%\addpoints
+%\hqword{Pregunta}
+%\hpgword{P\'agina}
+%\hpword{Pts.}
+%\hsword{Pts. Obt.}
+
+\begin{document}
+{
+\begin{center}
+
+\normalsize{Otoño 2022} \\
+
+\LARGE{\textbf{Métodos Cuantitativos II-III}}\\
+
+\LARGE{\textbf{Solemne}}\\
+\smallskip
+\small{\textbf{Profesor}: Andrés Sagner T.} \\
+\small{\textbf{Ayudantes}: Alberto Belmar P., Nicolás Leiva D., Matía Muñoz D.} \\
+\small\textsc{Martín Armas\footnote{marmas@fen.uchile.cl}, 20.287.589-0}
+\end{center}
+
+\bigskip
+}
+\section{Tasa de Desocupación en Chile}
+
+\subsection{Pregunta 1}
+
+\begin{center}
+\small{Figura 1.1.}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.6]{1.1..eps}
+\end{center}
+
+El componente estacional, $u^s_t$, es aquel que implica que hay comportamientos usuales durante el tiempo. Por ejemplo, que el PIB suba siempre en diciembre (ejemplo hipotético). En este caso, podemos ver que la tasa de desocupación si tiene un componente cíclico relevante en la serie. Si tomamos la muestra entre el 2000 y 2005, que es la parte de la serie más "constante", podemos ver que hay subidas y bajadas en la tasa de desocupación en intervalos con un tiempo similar. Este comportamiento lo podemos observar también en el resto de la serie de tiempo pero es más notorio y fácil de ver acá. \\
+Intuitivamente también podemos pensar que la tasa de desocupación si se debe comportar así. Por ejemplo, podemos ver que más o menos a fines de diciembre baja la tasa de desocupación y después sube en enero-febrero. Esto puede ocurrir debido a que en diciembre hay mucha actividad económica (fin de año, navidad), y posterior a esta fecha no hay tanta actividad económica o la gente se toma vacaciones, por lo que sube el desempleo. 
+
+\subsection{Pregunta 2}
+
+\begin{center}
+\small{Figura 1.2. y Figura 1.3.}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.55]{1.2..eps}
+\includegraphics[scale=0.55]{1.2.comp.eps}
+\end{center}
+
+Podemos ver que removiendo el componente cíclico con el filtro X-12 ARIMA, la serie efectivamente se suaviza y no tiene unos cambios tan bruscos como la serie original. Esto comprueba que $u^s_t$ si tiene un efecto relevante en la serie de tiempo que estamos analizando y que la tasa de desocupación si varía según el momento del año. \\
+Como la serie de tiempo cambió en comparación a la Figura 1.1., comprobamos que la serie no es estacionaria en su esencia\footnote{Ya que si tiene el componente estacional, no es estacionaria.}.
+
+\subsection{Pregunta 3}
+
+\begin{center}
+\small{Figura 1.4. y Figura 1.5.}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.55]{comp_tendencial.eps}
+\includegraphics[scale=0.55]{comp_ciclico.eps}
+\end{center}
+
+El filtro HP remueve el componente tendencial, $u^{\tau}_t$, que graficamos arriba a la izquierda. A la derecha podemos ver el componente cíclico, y podemos notar que por fin tenemos una serie de tiempo que es estacionaria. El componente cíclico, lo podemos analizar como las variaciones "reales" de la tasa de desempleo según fecha. Removimos el componente tendencial con el $\lambda=129.600$. \\
+Podemos notar que ante las crisis económicas, las tasas de desempleo suben fuertemente (crisis asiática, crisis sub-prime, COVID-19). Antes de estas tres crisis, el país tenía tasas de desempleo bajas (casi un -2\% por debajo de la tendencia) o estables (se mantuvo cercana al 0\% el 2019-2020). Con esto en mente, podemos asumir una correlación negativa entre la tasa de desempleo y la actividad económica. Es decir: cuando hay menor actividad económica. Por eso mismo en los momentos de crisis económica pudimos ver esos alzas fuertes en el desempleo. De todas maneras esta correlación es intuitiva: \\
+Siendo $u$ la tasa de desempleo: \\
+\begin{itemize}
+    \item $ \Delta^{+} PIB \Rightarrow $ Mayor actividad económica $ \Rightarrow \Delta^{-} u $ \\
+    \item $ \Delta^{-} PIB \Rightarrow $ Menor actividad económica $ \Rightarrow \Delta^{+} u $
+\end{itemize}
+
+\subsection{Pregunta 4}
+
+Aplicamos MV para el componente cíclico y probamos con los modelos $ARMA(p,q)$ establecidos: \\
+
+Criterio BIC:
+\begin{center}
+\begin{tabular}{c|ccccc}
+\hline 
+\hline
+\multicolumn{6}{c}{Tabla 1.1.} \\
+\hline 
+\multicolumn{6}{c}{BIC} \\
+\hline
+   & \multicolumn{5}{c}{p} \\
+q  & 0  & 1  & 3  & 6 & 12 \\ \hline
+0 & 1127,604 & 2,001849 & -128,791 & -147,855 & -122,772 \\
+1 & 665,4120 & -62,1902 & -137,035 & -149,203 & -117,476 \\
+3 & 135,3289 & -138,613 & \textbf{-164,403} & -138,066 & -132,759 \\
+6 & -56,7636 & -134,864 & -151,898 & -145,058 & -124,978 \\
+12 & -109,483 & -100,462 & -144,842 & -126,750 & -110,434 \\
+\hline
+\hline 
+\end{tabular}
+\end{center}
+
+
+Criterio AIC:
+\begin{center}
+\begin{tabular}{c|ccccc}
+\hline 
+\hline
+\multicolumn{6}{c}{Tabla 1.2.} \\
+\hline 
+\multicolumn{6}{c}{AIC} \\
+\hline 
+\hline
+   & \multicolumn{5}{c}{p} \\
+q  & 0  & 1  & 3  & 6 & 12 \\ \hline
+0 & 1119,463 & -10,2104 & -194,145 & -180,421 & -179,763 \\
+1 & 653,1998 & -78,4731 & -161,460 & -185,839 & -178,537 \\
+3 & 114,9752 & -163,037 & -192,898 & -182,844 & -197,891 \\
+6 & -89,3295 & -171,501 & -192,606 & -192,835 & -202,322 \\
+12 & -166,474 & -161,523 & -205,903 & -204,939 & \textbf{-208,132} \\
+\hline
+\hline 
+\end{tabular}
+\end{center}
+
+Podemos notar que no elegimos el mismo modelo con ambos criterios: en el BIC elegimos el modelo $ARMA(3,3)$, mientras que en el AIC elegimos el modelo $ARMA(12,12)$. Esto no es inusual, ya que, puede ocurrir que los criterios de información no elijan el mismo modelo. \\
+
+\smallskip 
+\subsection{Pregunta 5}
+
+\begin{center}
+\small{Figura 1.6.}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.65]{1.5..eps}
+\end{center}
+
+\begin{center}
+\small{Figura 1.7.}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.5]{pred_u.eps}
+\end{center}
+
+Podemos ver que la estimación con el modelo $ARMA(3,3)$ (que fue el que elegimos con el criterio de información BIC) es prácticamente igual al componente estacionario real. Con el mismo modelo hicimos una predicción de marzo a diciembre de este año, lo que nos da un alza del desempleo, acercándose a la tendencia. Para diciembre se espera que esté -0,78\% por bajo de la tendencia. Este alza se puede ser un shock contrario a la gran baja de desempleo que hubo recientemente, o también puede ocurrir por las presiones inflacionarias por las que estamos pasando.
+
+
+
+\newpage
+
+\section{Precio de Activos Financieros y Burbujas Racionales}
+
+\subsection{Pregunta 1}
+
+$$r_{t+1} = k + \rho p_{t+1} + (1 - \rho)d_{t+1} - p_t$$
+
+$$p_t = k + \rho p_{t+1} + (1 - \rho)d_{t+1} - r_{t+1} $$
+
+Agregamos un cero conveniente: $-d_t$
+
+$$p_t - d_t = k + \rho p_{t+1} + (1 - \rho)d_{t+1} - r_{t+1} - d_t$$
+
+$$p_t - d_t = k + \rho p_{t+1} + d_{t+1} - \rho d_{t+1} - r_{t+1} - d_t$$
+
+$$p_t - d_t = k + \rho (p_{t+1} - d_{t+1}) + d_{t+1} - d_t - r_{t+1}$$
+
+Y sabemos que $z_t = p_t - d_t$, por lo que:
+
+$$z_t = k + \rho z_{t+1} + \Delta d_{t+1} - r_{t+1}$$
+
+\subsection{Pregunta 2}
+
+Tenemos $z_t = k + \rho z_{t+1} + \Delta d_{t+1} - r_{t+1}$. Para hacer el ejercicio, hacemos sustituciones recursivas. La ecuación un período adelante sería $z_{t+1} = k + \rho z_{t+2} + \Delta d_{t+2} - r_{t+2}$, entonces:
+
+$$z_t = k + \rho (k + \rho z_{t+2} + \Delta d_{t+2} - r_{t+2}) + \Delta d_{t+1} - r_{t+1}$$
+
+$$z_t = k + \rho k + \rho^2 z_{t+2} + \rho \Delta d_{t+2} - \rho r_{t+2} + \Delta d_{t+1} - r_{t+1}$$
+
+$$z_t = k(1 + \rho) + \rho^2 z_{t+2} + \Delta d_{t+1} + \rho \Delta d_{t+2} - (r_{t+1} + \rho r_{t+2})$$
+
+Y así sucesivamente. Podemos notar que si seguimos haciendo sustituciones recursivas:
+
+\begin{itemize}
+
+\item Cada período para delante, el $k$ se multiplica por un nuevo término: $\rho^h$ (siendo $h$ el número del período).
+\item Cada período para delante, al $\Delta d_{t+1}$ se le suma si mismo del período $h$ por el parámetro $\rho$ elevado a $h$, es decir $\rho^h \Delta d_{t+h+1}$.
+\item Podemos notar que al $r_{t+1}$ le ocurre lo mismo que a $\Delta d_{t+1}$.
+\item Por último, cada período $h$ aparece el término $z_{t+h+1}$ multiplicado por $\rho^{h+1}$.
+
+\end{itemize}
+
+Por lo tanto, para el período $h$ tenemos:
+
+$$z_t = \sum_{j=0}^{h} \rho^j k + \sum_{j=0}^{h} \rho^j \Delta d_{t+j+1} - \sum_{j=0}^{h} \rho^j r_{t+j+1} + \rho^{h+1}z_{t+h+1}$$
+
+Sacamos el $k$ de su sumatoria y con $h\rightarrow\infty$:
+
+$$z_t = k \sum_{j=0}^{\infty} \rho^j + \sum_{j=0}^{\infty} \rho^j \Delta d_{t+j+1} - \sum_{j=0}^{\infty} \rho^j r_{t+j+1} + \lim_{h\to\infty} \rho^{h+1}z_{t+h+1}$$
+
+Por último, por propiedades de sumatorias nos termina dando:
+
+$$z_t = \frac{k}{1-\rho} + \sum_{j=0}^{\infty} \rho^j (\Delta d_{t+j+1} - r_{t+j+1}) + \lim_{h\to\infty} \rho^{h+1}z_{t+h+1}$$
+
+\subsection{Pregunta 3}
+
+
+
+\subsection{Pregunta 4}
+
+\begin{center}
+\includegraphics[scale=0.5]{ln_p.eps}
+\includegraphics[scale=0.5]{ln_d.eps}
+\includegraphics[scale=0.5]{ln_z.eps}
+\includegraphics[scale=0.5]{ln_z2.eps}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccccc}
+\hline
+\hline 
+\multicolumn{5}{c}{Tabla 2.1.} \\
+\hline
+\multicolumn{5}{c}{\begin{tabular}[c]{@{}c@{}}Estadística Descriptiva\\ \small{(enero 1871 - diciembre 2021)}\end{tabular}}    \\ \hline
+\multicolumn{1}{c|}{}           & Media & Desv. Estándar & Mín. & Máx. \\ \hline
+\multicolumn{1}{c|}{Precio*}    & 3,7438 & 2,0664 & 1,0043 & 8,4499 \\
+\multicolumn{1}{c|}{Dividendo*} & 0,5040 & 1,7046 & -1,7148 & 4,1009 \\
+\multicolumn{1}{c|}{Ratio P-D*} & 3,2398 & 0,4491 & 1,9779 & 4,5021 \\ \hline \hline
+\multicolumn{5}{c}{\small{*Variables en logaritmo natural}}     
+\end{tabular}
+\end{center}
+\smallskip
+
+\smallskip
+\begin{center}
+\begin{tabular}{ccccc}
+\hline
+\hline 
+\multicolumn{5}{c}{Tabla 2.2.} \\
+\hline
+\multicolumn{5}{c}{\begin{tabular}[c]{@{}c@{}}Estadística Descriptiva\\ \small{(enero 1871 - agosto 1990)}\end{tabular}}      \\ \hline
+\multicolumn{1}{c|}{}           & Media & Desv. Estándar & Mín. & Máx. \\ \hline
+\multicolumn{1}{c|}{Precio*}    & 2,8665 & 1,2560 & 1,0043 & 5,8872 \\
+\multicolumn{1}{c|}{Dividendo*} & -0,1903 & 1,1285 & -1,7148 & 2,4667 \\
+\multicolumn{1}{c|}{Ratio P-D*} & 3,0568 & 0,2742 & 1,9779 & 3,6440 \\ \hline \hline
+\multicolumn{5}{c}{\small{*Variables en logaritmo natural}}    
+\end{tabular}
+\end{center}
+\smallskip
+
+\smallskip
+\begin{center}
+\begin{tabular}{ccccc}
+\hline
+\hline 
+\multicolumn{5}{c}{Tabla 2.3.} \\
+\hline
+\multicolumn{5}{c}{\begin{tabular}[c]{@{}c@{}}Estadística Descriptiva\\ \small{(agosto 1990 - diciembre 2021)}\end{tabular}}  \\ \hline
+\multicolumn{1}{c|}{}           & Media & Desv. Estándar & Mín. & Máx. \\ \hline
+\multicolumn{1}{c|}{Precio*}    & 7,0909 & 0,6196 & 5,7272 & 8,4499 \\
+\multicolumn{1}{c|}{Dividendo*} & 3,1541 & 0,5115 & 2,4667 & 4,1009 \\
+\multicolumn{1}{c|}{Ratio P-D*} & 3,9369 & 0,2632 & 3,2485 & 4,5021 \\ \hline \hline 
+\multicolumn{5}{c}{\small{*Variables en logaritmo natural}}                   
+\end{tabular}
+\end{center}
+
+Con los gráficos podemos ver que el logaritmo natural de los precios y de los dividendos tienen alza constante, lo que nos hace descartar que alguna de esas dos variables es estacionaria en algún intervalo de tiempo. Por otro lado, podemos notar que el $z_t$, el Ratio precio-dividendo, es prácticamente estacionario en torno al 2,97 hasta mediados de año de 1950 (Figura 2.4.). Después de esa fecha podemos notar un alza constante en el ratio, en especial desde 1983. \\
+La estadística descriptiva también nos dice que las tres variables no son estacionarias. Podemos notar que hay una diferencia sustancial entre las medias, los mínimos y los máximos de los sub-períodos (Tablas 2.2. y 2.3.), lo que sugiere que ninguna de las tres variables es estacionaria. También las medias de ambos sub-períodos son distintas a la de la muestra total (Tabla 2.1.), lo que sugiere un cambio de tendencia en la muestra. Este cambio de tendencia también se puede ver claramente en la Figura 2.4.. \\
+
+\subsection{Pregunta 5}
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+\hline 
+\multicolumn{3}{c}{Tabla 2.4.}                   \\ \hline
+\multicolumn{3}{c}{Estadística Descriptiva}      \\ \hline
+\multicolumn{1}{c|}{}      & $\phi_1$ & $\phi_2$ \\ \hline
+\multicolumn{1}{c|}{AR(1)} & 0,9771 &  \\
+\multicolumn{1}{c|}{AR(2)} & 1,3078 & -0,3126 \\
+\hline 
+\hline 
+\end{tabular}
+\end{center}
+
+Entonces, tenemos que el Ratio Precio-Dividendo ($z_t$): \\
+
+$$ z_t = \phi_1 z_{t-1} + \phi_2 z_{t-2} + \varepsilon_t $$
+$$ z_t - \phi_1 z_{t-1} - \phi_2 z_{t-2} = \varepsilon_t $$
+$$ z_t (1 - \phi_1 L - \phi_2 L^2) = \varepsilon_t $$
+
+Para buscar las raíces, usamos la función $\Phi(\tilde z) = \tilde z^2 - \phi_1 \tilde z^{2-1} - \phi_2 \tilde z^{2-2} = \tilde z^2 - \phi_1 \tilde z - \phi_2 $ \\ 
+Entonces: \\
+$$ z^* = \frac{\phi_1 \pm \sqrt{\phi_1^2 + 4 \phi_2}}{2} $$
+
+Ahora, para cada modelo: \\
+
+$$ AR(1): z^* = \frac{0,9771 \pm \sqrt{0,9771^2 + 4 \cdot 0}}{2} = \frac{0,9771 \pm 0,9771}{2} $$
+$$ AR(1): z^{*1} = 0,9771 $$ \\
+Estos resultados son contraintuitivos a lo que pensábamos, ya que, nos da que la raíz del modelo está dentro del círculo unitario, por lo que el modelo sería estacionario. Lo contrario a lo que pensábamos. \\
+$$ AR(2): z^* = \frac{1,3078 \pm \sqrt{1,3078^2 + 4 \cdot -0,3126}}{2} = \frac{1,3078 \pm \sqrt{0,4599}}{2} $$
+$$ AR(2): z^{*1} = 0,99297 \wedge z^{*2} = 0,31482 $$
+
+Por otro lado, las raíces del AR(2) no cumplen la condición de que el valor absoluto de la suma de ambas sea menor a 1, por lo que el modelo no es estacionario.
+
+\newpage
+
+\section{Proyección en Tiempo Real del Tipo de Cambio}
+
+\subsection{Pregunta 1}
+
+Calculamos la variación mensual del tipo de cambio medida en porcentaje como se pide en el enunciado. Antes de ver los resultados podemos asumir que hay más variaciones positivas que negativas, ya que, el tipo de cambio subió en este período, entonces deben haber más variaciones positivas, o si no que las variaciones positivas hayan sido considerablemente mayores (en valor). Esto también nos indicaría que el promedio de la variación mensual es positivo y que la variable tiene asimetría positiva (más valores a la derecha del cero). \\
+Entonces calculamos: \\
+
+\begin{center}
+\begin{tabular}{ccccc}
+\hline
+\hline 
+\multicolumn{5}{c}{Tabla 3.1.} \\
+\hline
+\multicolumn{5}{c}{Estadística Descriptiva}  \\ \hline
+\multicolumn{1}{c|}{}           & Media & Desv. Estándar & Asimetría & Curtosis \\ \hline
+\multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Variación mensual\\ del tipo de cambio\end{tabular}} & 0,5837 & 2,4964 & 1,2436 & 9,6005 \\ \hline \hline 
+\end{tabular}
+\end{center}
+
+Para ayudar con el análisis, graficamos la variable y su asimetría: \\
+
+\begin{center}
+\includegraphics[scale=0.5]{g_t_1.eps}
+\includegraphics[scale=0.5]{asimetria.eps}
+\end{center}
+
+Primero, podemos ver que todas nuestras "predicciones" se cumplieron: promedio de variación positivo, asimetría positiva y más variaciones positivas que negativas. \\
+El promedio fue de un 0,58\%. Podemos notar en el gráfico que hay más variaciones positivas que negativas en el período seleccionado. Los mayores shocks que tuvo el tipo de cambio fueron para la crisis económica de 1982 y para la crisis subprime, donde en ambos casos la variación superó el 15\%. \\
+Además de esas dos fechas, hubo un par de veces que la variación tuvo shocks entre un 5\% y un 7,5\%, como a finales del 2019. Podemos contemplar que los momentos con mayor variación son los que tenían una gran incertidumbre con respecto a lo que iba a pasar en la economía, por lo que podemos asumir que la incertidumbre es uno de los factores más importantes en los shocks de los tipos de cambio.
+
+
+
+\subsection{Pregunta 2}
+
+Tenemos que la proyección del modelo AR(1) es:
+$$ E_t[y_{t+h}] = \mu \left( \frac{1-\phi^h}{1-\phi} \right) + \phi^h y_t $$
+Sin embargo, esa proyección es sólo para AR(1), no sirve para AR(2). Por esto mismo, lo que hice fue estimar el período con esta fórmula de proyección y después proyectar con los siguientes modelos: \\
+Para AR(1):
+$$ g_t = \mu + \phi_1 g_{t-1} + \varepsilon_t $$
+Para AR(2):
+$$ g_t = \mu + \phi_1 g_{t-1} + \phi_2 g_{t-2} + \varepsilon_t $$
+Con $ \varepsilon_t \backsim \mathcal{N} (0,\sigma^2) $. \\
+Por lo tanto, la proyección de $g_{t+1|t}$ sería:
+$$ AR(1): \hat E_t[g_{t+1}] = \mu + \phi_1 g_t $$
+$$ AR(2): \hat E_t[g_{t+1}] = \mu + \phi_1 g_t + \phi_2 g_{t-1} $$
+Para confirmar que la estimación para los modelos AR(1) y AR(2) sean los correctos, comparé la estimación hecha con el modelo de proyección AR(1) con la proyección que hice con $ AR(1): \hat E_t[g_{t+1}] = \mu + \phi_1 g_{t} $. Ambas proyecciones dieron iguales, por lo que podemos asumir que la proyección también sirve y podemos usar la proyección para el AR(2). \\
+Con esto en mente, la estimación que nos da cada uno de los modelos en Stata es: 
+$$ AR(1): \hat E_t[g_{t+1}] = -0,114736 $$
+$$ AR(2): \hat E_t[g_{t+1}] = -0,147861 $$
+A continuación nos piden el Error Cuadrático de los modelos. Para sacar este valor hay que restarle cada estimación al valor real de $g_{t+1}$, que es $-0,27738$ y elevar al cuadrado ese resultado. Es decir
+$$EC_i = (g_{t+1} - \hat E_t[g_{t+1}]_{AR(i)})^2 $$
+Siendo $ i = 1,2 $, entonces:
+$$ EC_1 = (g_{t+1} - \hat E_t[g_{t+1}]_{AR(1)})^2 $$
+$$ EC_1 = 0,02645415 $$
+$$ EC_2 = (g_{t+1} - \hat E_t[g_{t+1}]_{AR(2)})^2 $$
+$$ EC_2 = 0,01677602 $$ 
+
+\begin{center}
+\includegraphics[scale=0.6]{g_t1.eps}
+\includegraphics[scale=0.6]{g_t2.eps}
+\end{center}
+
+Podemos notar que ambas proyecciones son similares a la serie original y son muy similares entre sí. Antes de calcular el ECM, podemos pensar que ambos modelos tendrán resultados muy parecidos (gráficos muy similares). Esto, de todas maneras, lo podemos asumir de antemano, debido a que el modelo AR(2) ya contiene al modelo AR(1) y tiene un rezago extra, por lo que la diferencia entre ambos no debe ser muy grande.
+
+\subsection{Pregunta 3}
+
+\begin{center}
+\begin{tabular}{cc}
+\hline
+\hline 
+\multicolumn{2}{c}{Tabla 3.2.} \\
+\hline
+\multicolumn{2}{c}{Error Cuadrático Medio}  \\ \hline
+$ECM_{AR(1)}$ & 2,851787 \\
+$ECM_{AR(2)}$ & 2,852249 \\ \hline \hline 
+\end{tabular}
+\end{center}
+
+Podemos ver que el Error Cuadrático Medio es muy parecido entre ambas proyecciones. Sin embargo, el ECM de AR(1) es levemente menor que el de AR(2). Esto quiere decir que a pesar de que la proyección de AR(1) es más precisa, la proyección de AR(2) también es muy precisa y proyecta de buena manera la serie original. \\
+
+\subsection{Pregunta 4}
+
+\begin{center}
+\includegraphics[scale=0.5]{341.eps}
+\end{center}
+
+Podemos ver que la proyección del tipo de cambio es muy parecida a la serie original, al igual que su variación mensual. Esto nos demuestra que el estimador AR(1) es muy preciso y es un gran instrumento para hacer proyecciones de las variables de interés. \\
+
+
+\newpage
+
+\section{Actividad Económica y Procesos Estocásticos}
+
+$$y_t = y_t^{se} \cdot y_t^{tr} \cdot y_t^{cy}$$
+
+Donde $ y_t $ es el índice de actividad económica, $y_t^{se}$ es el componente estacional, $y_t^{tr}$ es el componente de tendencia y $y_t^{cy}$ es el componente cíclico.
+
+\subsection{Pregunta 1}
+
+La brecha de producto es la diferencia entre el PIB y el PIB tendencial. Lo podemos de la ecuación de arriba separando los componentes aplicando logaritmo natural y pasando el $ln(y_t^{tr})$ al otro lado, restando el $ln(y_t)$. Es decir:
+
+$$ y_t = y_t^{se} \cdot y_t^{tr} \cdot y_t^{cy} \Rightarrow ln(y_t) = ln(y_t^{se}) + ln(y_t^{tr}) + ln(y_t^{cy}) $$ 
+$$ ln(y_t) - ln(y_t^{tr}) = ln(y_t^{se}) + ln(y_t^{cy}) $$
+
+Así tenemos la diferencia de los logaritmos naturales de ambos términos, que se debe comportar de igual manera que la diferencia de ambos términos sin el $ln()$. Por último aplicamos el filtro X-12 ARIMA para quitar el componente estacional de la serie de tiempo y así tener un análisis más preciso de la variable (diferencia).
+
+
+\subsection{Pregunta 2}
+
+Nos dicen que el componente cíclico es una variable aleatoria que depende de 8 sectores de la economía de la forma:
+$$ y_t^{cy} (X_t) = \frac{0,2 X_t}{1-(1+X_t)^{-1}} $$
+Estos sectores son independientes entre sí y tienen un 50\% de probabilidades de superar su nivel potencial\footnote{Entonces creamos una variable dummy: 1 si supera su potencial, 0 si no lo hace.}. $y_t^{cy}$ puede tomar 9 valores distintos: si ningún sector se supera, si 1 sector se supera, si 2 sectores se superan, hasta llegar a los 8 sectores.
+Entonces:
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+\hline
+\multicolumn{3}{c}{Tabla 4.1.} \\ \hline
+Número de sectores & Valor $y_t^{cy}$ & Probabilidad \\ \hline
+0                  &        0,0          &         \approx 0,39\%   \\
+1                  &         0,4         &         \approx 3,13\%    \\
+2                  &         0,6         &        \approx 10,94\%    \\
+3                  &    0,8      &       \approx 21,88\%    \\
+4                  &       1,0           &      \approx 27,34\%    \\
+5                  &          1,2        &        \approx 21,88\%    \\
+6                  &    1,4              &      \approx 10,94\%    \\
+7                  &       1,6           &    \approx 3,13\%    \\
+8                  &          1,8        &     \approx 0,39\%     \\ \hline
+\hline 
+\end{tabular}
+\end{center}
+
+Cuando $ X_t = 0 $, tenemos que $ y^{cy}_t $ se indeterminaría, por lo tanto tenemos que fijar: $ y_t^{cy} (X_t = 0) = 0 $. \\
+
+Entonces, como tomamos que los sectores con sus respectivas probabilidades como una variable binominal, podemos sacar media y la varianza de $ y_t^{cy} $. Sabemos que la media de una variable binominal es $n \cdot p$ y que su varianza es $n \cdot p \cdot (1-p)$:
+$$ E[y_t^{cy}] = \frac{0,2 E[X_t]}{1-(1+E[X_t])^{-1}} $$
+$$ E[y_t^{cy}] = \frac{0,2 \cdot 4}{1-(1+4)^{-1}} $$
+$$ E[y_t^{cy}] = 1 $$
+
+
+
+
+\subsection{Pregunta 3}
+
+\begin{center}
+\includegraphics[scale=0.5]{preg42.eps}
+\end{center}
+
+Al graficar la función de densidad de probabilidad del componente $y^{cy}_t$, podemos notar que la probabilidad de que el componente cíclico del índice de actividad económica sea menor o igual a su media (1) es de un 63,68\%. Podemos notar que $Pr(y^{cy}_t<1) = Pr(y^{cy}_t>1)$, ya que, la variable de $ X_t $ tiene una distribución binomial. A esta probabilidad de $Pr(y^{cy}_t<1)$ se le suma la probabilidad de $Pr(y^{cy}_t=1)$, que es más de $1/4$ de las probabilidades totales. \\
+
+\subsection{Pregunta 4}
+
+Para el $T=\{10, 50, 100, 500\}$ sabemos que el componente cíclico tiene la misma distribución que para el $T=8$, ya que, sigue siendo una combinatoria pero con un mayor $T$. Por lo tanto, siempre vamos a tener ese tipo de campana gaussiana que hay como en la Figura 4.1., pero cada vez más "suavizada".
+
+
+
+\subsection{Pregunta 5}
+
+
+\end{document}

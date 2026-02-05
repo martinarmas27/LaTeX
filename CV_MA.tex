@@ -1,0 +1,192 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{changepage}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+\usepackage{ragged2e}
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+
+
+
+\textbf{\large Martín Armas Llosa} & \textbf{Febrero, 2026} & Ingeniero Comercial, mención Economía & marmas@fen.uchile.cl & Santiago, Chile & $+$56 9 8138 7419 &  \href{https://www.linkedin.com/in/mart%C3%ADn-armas-7a677b190/}{LinkedIn}  &\\
+
+\end{tabular*}
+\\
+
+\begin{center}
+    \textbf{\large Descripción}
+    \vspace{0.1cm}
+
+    \hline
+
+\end{center}
+
+\justify
+
+    \noindent Ingeniero Comercial con mención Economía de la Universidad de Chile, con experiencia en evaluación de proyectos, análisis de fondos de inversión privados y análisis de datos (tanto a nivel institucional como a nivel macroeconómico). Interesado en los mercados de capitales, activos alternativos, desarrollo corporativo y en I+D+i. Profesional proactivo, detallista y analítico, con sólida base en lenguajes de programación y  softwares estadísticos.
+
+           
+
+    
+\vspace*{0.3cm}
+\begin{center}
+\textbf{\large Educación}
+\vspace{0.1cm}
+\hline
+\end{center}
+
+\begin{itemize}
+\normalsize
+
+\item \ressubheading{Facultad de Economía y Negocios, Universidad de Chile}{Santiago, Chile}{Ingeniería Comercial, Mención Economía}{2019 - 2024}
+
+\vspace*{0.3cm}
+
+\item \ressubheading{KEDGE Business School}{Marsella, Francia}{Exchange Program. Master in Management, Major International Business}{ago. 2022 - dic. 2022}
+
+\end{itemize}
+
+\vspace{0.1mm}
+
+\begin{center}
+\textbf{\large Experiencia Laboral}
+\vspace{0.1cm}
+\hline
+\end{center}
+\begin{itemize}
+
+\item \ressubheading{Agente de Innovación}{Santiago, Chile}{Hub APTA}{jun. 2024 - ene. 2026}
+\vspace{0.1cm}
+\begin{adjustwidth}{-0.25cm}{2cm}
+{\small
+\begin{itemize}
+\resitem[--]{Responsable de la reportería institucional del Hub ante la Agencia Nacional de Investigación y Desarrollo (ANID), lo que implica la recopilación y análisis de datos del portafolio tecnológico y organización de la documentación a nivel institucional.}
+\resitem[--]{Evaluación de startups y proyectos de investigación, con foco en su viabilidad financiera y técnica, competencia, modelo de negocios y potencial de escalamiento. Experiencia en revisión y priorización de postulaciones, interacción con startups e investigadores, y coordinación del proceso completo de selección.}
+\resitem[--]{Responsable de la gestión, calidad y automatización de bases de datos del Hub, asegurando la integridad de la información y la automatización de procesos.}
+\end{itemize}
+}
+\end{adjustwidth}
+
+
+\item \ressubheading{Practicante Activos Alternativos}{Santiago, Chile}{MFO Advisors}{ago. 2023 - ene. 2024}
+\vspace{0.1cm}
+\begin{adjustwidth}{-0.25cm}{2cm}
+{\small
+\begin{itemize}
+\resitem[--]{Análisis y presentación de fondos de inversión de private equity, private debt y real estate, con enfoque en la  rentabilidad histórica, \textit{allocation}, riesgo y \textit{track record} del manager.}
+\resitem[--]{Análisis del desempeño de los fondos de inversión de la cartera, según rentabilidad, tipo de activos que posee y contexto macroeconómico.}
+\resitem[--]{Seguimiento de la cartera a través de reportes periódicos sobre el estado de fondos de inversión.}
+\end{itemize}
+}
+\end{adjustwidth}
+
+
+\item \ressubheading{Practicante}{Santiago, Chile}{Hub APTA}{mar. 2022 - jun. 2022}
+\vspace{0.1cm}
+\begin{adjustwidth}{-0.25cm}{2cm}
+{\small
+\begin{itemize}
+\resitem[--]{Apoyo transversal en programas APTA Builder y Fill The Gap.}
+\end{itemize}
+}
+\end{adjustwidth}
+
+
+\item \ressubheading{Ayudante de Cátedra}{Santiago, Chile}{Facultad de Economía y Negocios, Universidad de Chile}{jul. 2021 - dic. 2021}
+\vspace{0.1cm}
+\begin{adjustwidth}{-0.25cm}{2cm}
+{\small
+\begin{itemize}
+\resitem[--]{Realización de ayudantías y corrección del curso Métodos Matemáticos II (cálculo y álgebra).}
+\end{itemize}
+}
+\end{adjustwidth}
+
+
+\end{itemize}
+
+\vspace{0.1mm}
+
+\begin{center}
+\textbf{\large Habilidades y Certificaciones}
+\vspace{0.1cm}
+\hline
+\end{center}
+
+
+\begin{itemize}
+
+\item \textbf{Idiomas:} Inglés avanzado.
+
+ \item \textbf{Programas Computacionales:} Excel avanzado; \LaTeX \ avanzado; Stata avanzado; R intermedio; Python intermedio.
+
+ \item \textbf{Plataformas de Propiedad Intelectal e I$+$D:} Patsnap; ktMINE.
+
+ \item \textbf{Certificado de Technology Manager Academy:} Fundamentos de Gestión Tecnológica, Nivel 1 (2024) y Nivel 2 (2025). Red de Gestores Tecnológicos de Chile. Becado por Hub APTA.
+
+ \item \textbf{Certificado de AUTM:} On-Demand AUTM Essentials of Academic Technology (2025). AUTM. Becado por AUTM a través del concurso ``Resume Sweepstakes''.
+
+ \end{itemize}
+
+\end{document}
